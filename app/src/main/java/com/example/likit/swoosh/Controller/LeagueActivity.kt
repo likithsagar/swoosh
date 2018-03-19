@@ -1,10 +1,12 @@
-package com.example.likit.swoosh
+package com.example.likit.swoosh.Controller
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.likit.swoosh.utilities.EXTRA_LEAGUE
+import com.example.likit.swoosh.R
 import kotlinx.android.synthetic.main.activity_league.*
 
 class LeagueActivity : AppCompatActivity() {
@@ -21,13 +23,13 @@ class LeagueActivity : AppCompatActivity() {
     fun onMensClicked(view: View) {
         womensLeagueBtn.isChecked= false
         coedLeagueBtn.isChecked=false
-         selectedLeague="mens"
+         selectedLeague="men's"
     }
 
     fun onWomensClicked(view: View) {
         mensLeagueBtn.isChecked= false
         coedLeagueBtn.isChecked=false
-        selectedLeague="womens"
+        selectedLeague="women's"
     }
     fun onCoedClicked(view: View) {
         mensLeagueBtn.isChecked= false
@@ -40,6 +42,7 @@ class LeagueActivity : AppCompatActivity() {
 
             val skillIntent = Intent(this, SkillActivity::class.java)
             skillIntent.putExtra(EXTRA_LEAGUE, selectedLeague)
+
             startActivity(skillIntent)
         } else {
             Toast.makeText(this, "Please select a league", Toast.LENGTH_SHORT).show()
